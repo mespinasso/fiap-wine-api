@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 @router.get("")
-def get_all(floor_year=FLOOR_YEAR, ceiling_year=CEILING_YEAR - 1, category=None):
+def get_filtered(floor_year=FLOOR_YEAR, ceiling_year=CEILING_YEAR - 1, category=None):
     return [wine.to_dict() for wine in get_filtered_svc(int(floor_year), (int(ceiling_year) + 1), category)]
 
 
