@@ -3,6 +3,10 @@ from app.utils.data_search_defaults import DATA_SOURCE_URL_PREFIX, FLOOR_YEAR, C
 from app.utils.file_retriever import retrieve_file
 
 IMPORT_WINE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpVinhos.csv', 'ImpVinhos')
+IMPORT_SPARK_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpEspumantes.csv', 'ImpEspumantes')
+IMPORT_GRAPES_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpFrescas.csv', 'ImpFrescas')
+IMPORT_RAISINS_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpPassas.csv', 'ImpPassas')
+IMPORT_JUICE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpSuco.csv', 'ImpSuco')
 
 
 def _get_by_date_interval(initial_year: int, final_year: int, config):
