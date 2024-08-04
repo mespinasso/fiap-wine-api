@@ -1,5 +1,3 @@
-from typing import Dict
-
 from app.parsers.wine_csv_parser import parse_wine_data
 from app.utils.data_search_defaults import DATA_SOURCE_URL_PREFIX, FLOOR_YEAR, CEILING_YEAR
 from app.utils.file_retriever import retrieve_file
