@@ -39,7 +39,7 @@ def get_filtered_sum(initial_year: int, final_year: int, category, config):
     wine_summed_data = [wine.to_dict() for wine in wine_data]
 
     for wine_data_entry in wine_summed_data:
-        wine_data_entry['sum'] = sum([ywd['amount'] for ywd in wine_data_entry['data']])
+        wine_data_entry['sum'] = sum([yd['amount'] for yd in wine_data_entry['data']])
         del wine_data_entry['data']
 
     return wine_summed_data

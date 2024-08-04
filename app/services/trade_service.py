@@ -25,3 +25,15 @@ def get_filtered(initial_year: int, final_year: int, country_name, config):
         trade_data = [country for country in trade_data if country.name == country_name]
 
     return trade_data
+
+def get_filtered_sum(initial_year: int, final_year: int, country_name, config):
+    trade_data = get_filtered(initial_year, final_year, country_name, config)
+    trade_summed_data = [country.to_dict() for country in trade_data]
+
+    for trade_data_entry in trade_summed_data:
+        trade_data_entry['total_amount'] = sum(yd['amount'] for yd in trade_data_entry['data'])
+        trade_data_entry['total_value'] = sum(yd['value'] for yd in trade_data_entry['data'])
+
+        del trade_data_entry['data']
+
+    return trade_summed_data
