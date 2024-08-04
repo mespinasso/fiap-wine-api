@@ -8,6 +8,11 @@ IMPORT_GRAPES_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpFrescas.csv', 'ImpFres
 IMPORT_RAISINS_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpPassas.csv', 'ImpPassas')
 IMPORT_JUICE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ImpSuco.csv', 'ImpSuco')
 
+EXPORT_WINE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ExpVinho.csv', 'ExpVinhos')
+EXPORT_SPARK_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ExpEspumantes.csv', 'ExpEspumantes')
+EXPORT_GRAPES_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ExpUva.csv', 'ExpUva')
+EXPORT_JUICE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ExpSuco.csv', 'ExpSuco')
+
 
 def _get_by_date_interval(initial_year: int, final_year: int, config):
     if initial_year < FLOOR_YEAR:
