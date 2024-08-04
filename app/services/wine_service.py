@@ -9,6 +9,8 @@ AMER_GRAPE_PRO_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ProcessaAmericanas.csv',
 TABLE_GRAPE_PRO_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ProcessaMesa.csv', 'ProcessaMesa', 'cultivar', '\t')
 DCL_GRAPE_PRO_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ProcessaSemclass.csv', 'ProcessaSemclass', 'cultivar', '\t')
 
+COMMERCE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}Comercio.csv', 'Comercio', 'produto', ';')
+
 
 def _get_by_date_interval(initial_year: int, final_year: int, config):
     if initial_year < FLOOR_YEAR:
