@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api import production_api
+from app.api import production_api, processing_api
 
 app = FastAPI(
     title="Wine API 🍷",
@@ -14,3 +14,4 @@ app = FastAPI(
 )
 
 app.include_router(production_api.router, prefix="/v1/production", tags=["Production"])
+app.include_router(processing_api.router, prefix="/v1/processing", tags=["Processing"])

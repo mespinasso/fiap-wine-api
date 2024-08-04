@@ -1,7 +1,7 @@
 from typing import List
 
 
-class YearlyWineData:
+class YearlyWineGrapeData:
     def __init__(self, year: int, amount: int):
         self.year = year
         self.amount = amount
@@ -10,14 +10,14 @@ class YearlyWineData:
         return {'year': self.year, 'amount': self.amount}
 
 
-class Wine:
+class WineGrape:
     def __init__(self, code: str, name: str, category: str):
         self.code = code
         self.name = name
         self.category = category
-        self.data: List[YearlyWineData] = []
+        self.data: List[YearlyWineGrapeData] = []
 
-    def add_yearly_data(self, yearly_data: YearlyWineData):
+    def add_yearly_data(self, yearly_data: YearlyWineGrapeData):
         self.data.append(yearly_data)
 
     def to_dict(self):
