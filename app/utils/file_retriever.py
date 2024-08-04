@@ -55,17 +55,6 @@ def _write_content_to_file(file_name, file_content):
         file.write(file_content)
 
 
-# def _read_content_from_file(file_name):
-#     """
-#     Read the content from a file.
-#
-#     :param file_name: The name of the file to read.
-#     :return: The content read from the file.
-#     """
-#     with open(os.path.join('data', f'{file_name}.csv'), 'r') as f:
-#         return f.read()
-
-
 def _check_file_exists(file_name):
     """
     Check if a given file exists.
