@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api import production_api, processing_api, commerce_api, import_api, export_api
+from app.api import production_api, processing_api, commerce_api, import_api, export_api, admin_api
 
 app = FastAPI(
     title="Wine API 🍷",
@@ -18,3 +18,4 @@ app.include_router(processing_api.router, prefix="/v1/processing", tags=["Proces
 app.include_router(commerce_api.router, prefix="/v1/commerce", tags=["Commerce"])
 app.include_router(import_api.router, prefix="/v1/imports", tags=["Imports"])
 app.include_router(export_api.router, prefix="/v1/exports", tags=["Exports"])
+app.include_router(admin_api.router, prefix="/v1/admin", tags=["Administration"])

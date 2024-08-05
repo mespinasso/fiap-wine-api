@@ -2,6 +2,18 @@ import requests
 import os
 
 
+def purge_all_files():
+    """
+    Delete all files in the 'data' directory.
+
+    :return: None
+    """
+    file_list = os.listdir('data')
+    for file in file_list:
+        file_path = os.path.join('data', file)
+        os.remove(file_path)
+
+
 def retrieve_file(download_url, file_name, force_download=False):
     """
     Retrieves the file if it already exists or downloads it from the given URL and save for future usage.
