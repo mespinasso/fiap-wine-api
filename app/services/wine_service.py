@@ -12,21 +12,21 @@ DCL_GRAPE_PRO_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ProcessaSemclass.csv', 'P
 COMMERCE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}Comercio.csv', 'Comercio', 'produto', ';')
 
 
-def _get_by_date_interval(initial_year: int, final_year: int, config):
+def _get_by_date_interval(initial_year: int, final_year: int, config, clear_cache: bool):
     if initial_year < FLOOR_YEAR:
         initial_year = FLOOR_YEAR
 
     if final_year > CEILING_YEAR:
         final_year = CEILING_YEAR
 
-    raw_data = retrieve_file(download_url=config[0], file_name=config[1])
+    raw_data = retrieve_file(download_url=config[0], file_name=config[1], force_download=clear_cache)
     wine_data = parse_data(raw_data, initial_year, final_year, config[2], config[3])
 
     return wine_data
 
 
-def get_filtered(initial_year: int, final_year: int, category, config):
-    wine_data = _get_by_date_interval(initial_year, final_year, config)
+def get_filtered(initial_year: int, final_year: int, category, config, clear_cache: bool):
+    wine_data = _get_by_date_interval(initial_year, final_year, config, clear_cache)
 
     if category is not None:
         wine_data = [wine for wine in wine_data if wine.category == category]
@@ -34,8 +34,8 @@ def get_filtered(initial_year: int, final_year: int, category, config):
     return wine_data
 
 
-def get_filtered_sum(initial_year: int, final_year: int, category, config):
-    wine_data = get_filtered(initial_year, final_year, category, config)
+def get_filtered_sum(initial_year: int, final_year: int, category, config, clear_cache: bool):
+    wine_data = get_filtered(initial_year, final_year, category, config, clear_cache)
     wine_summed_data = [wine.to_dict() for wine in wine_data]
 
     for wine_data_entry in wine_summed_data:

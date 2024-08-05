@@ -14,29 +14,29 @@ EXPORT_GRAPES_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ExpUva.csv', 'ExpUva')
 EXPORT_JUICE_FILE_CONFIG = (f'{DATA_SOURCE_URL_PREFIX}ExpSuco.csv', 'ExpSuco')
 
 
-def _get_by_date_interval(initial_year: int, final_year: int, config):
+def _get_by_date_interval(initial_year: int, final_year: int, config, clear_cache: bool):
     if initial_year < FLOOR_YEAR:
         initial_year = FLOOR_YEAR
 
     if final_year > CEILING_YEAR:
         final_year = CEILING_YEAR
 
-    raw_data = retrieve_file(download_url=config[0], file_name=config[1])
+    raw_data = retrieve_file(download_url=config[0], file_name=config[1], force_download=clear_cache)
     trade_data = parse_data(raw_data, initial_year, final_year)
 
     return trade_data
 
 
-def get_filtered(initial_year: int, final_year: int, country_name, config):
-    trade_data = _get_by_date_interval(initial_year, final_year, config)
+def get_filtered(initial_year: int, final_year: int, country_name, config, clear_cache: bool):
+    trade_data = _get_by_date_interval(initial_year, final_year, config, clear_cache)
 
     if country_name is not None:
         trade_data = [country for country in trade_data if country.name == country_name]
 
     return trade_data
 
-def get_filtered_sum(initial_year: int, final_year: int, country_name, config):
-    trade_data = get_filtered(initial_year, final_year, country_name, config)
+def get_filtered_sum(initial_year: int, final_year: int, country_name, config, clear_cache: bool):
+    trade_data = get_filtered(initial_year, final_year, country_name, config, clear_cache)
     trade_summed_data = [country.to_dict() for country in trade_data]
 
     for trade_data_entry in trade_summed_data:
