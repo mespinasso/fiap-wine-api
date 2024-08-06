@@ -2,14 +2,35 @@ from fastapi import FastAPI
 
 from app.api import production_api, processing_api, commerce_api, import_api, export_api, admin_api, auth_api
 
+description = """
+## Sobre a API
+
+A Wine API oferece uma maneira fácil de consumir dados sobre a produção, processamento e comercialização de vinhos.
+Utilize os endpoints disponíveis para acessar os dados fornecidos pela Embrapa.
+
+## Endpoints públicos
+
+Você pode consultar todos os dados através dos endpoints públicos de consulta, sem necessidade de de cadastrar 
+na aplicação.
+
+## Endpoints protegidos
+
+A seção de gerenciamento da API, que permite a exclusão de todos os arquivos de cache dos dados da Embrapa, somente pode
+ser acessada após registro e autenticação do usuário.
+"""
+
 app = FastAPI(
     title="Wine API 🍷",
     summary="Embrapa Wine Database API",
+    description=description,
     version="1.0.0",
-    terms_of_service="http://vitibrasil.cnpuv.embrapa.br/",
     contact={
         "name": "Matheus Espinasso",
         "url": "https://www.linkedin.com/in/matheuscoelhoespinasso"
+    },
+    license_info={
+        "name": "Embrapa",
+        "url": "http://vitibrasil.cnpuv.embrapa.br/",
     }
 )
 

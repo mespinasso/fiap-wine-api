@@ -13,6 +13,8 @@ registered_users = []
 class AuthHandler:
     security = HTTPBearer()
     pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+    # Meaningless secret, fixed and versioned here for academic purposes only
     secret = 'CVMFvMEuV1uB1CrkF1q1pRH0mue9mwBiKleDmcD'
 
     def register_user(self, auth_details: UserAuth):
