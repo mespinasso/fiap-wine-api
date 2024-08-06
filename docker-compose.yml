@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-  web:
-    build: .
+  wine-api:
+    image: mespinasso/fiap-wine-api:1.0.0
+    container_name: mespinasso-fiap-wine-api
     ports:
       - "8000:8000"
