@@ -16,7 +16,10 @@ A imagem será baixada [desse registro público do Docker Hub](https://hub.docke
 onde foi disponibilizada.
 
 Uma vez que o comando tenha sido executado com sucesso, você poderá explorar os endpoints da API através de sua página
-de documentação Swagger, que pode ser acessada em `http://localhost:8000/docs`
+de documentação Swagger, que pode ser acessada em `http://localhost:8000/docs`.
+
+Ao terminar o uso da API, você pode interromper a sua execução executando no mesmo diretório raíz o comando 
+`docker-compose stop`. Após alguns segundos, a execução será finalizada.
 
 ![Imagem mostrando a página de documentação da API](./assets/swagger_docs.png)
 
