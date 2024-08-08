@@ -5,6 +5,17 @@
 API não oficial e com fins acadêmicos para consulta de dados disponibilizados no site da
 [Embrapa](http://vitibrasil.cnpuv.embrapa.br/).
 
+## Cenário de uso
+
+Abaixo está um modelo simplificado de deploy e uso proposto para a API.
+
+![Sugestão de arquitetura de deploy e uso](./assets/deploy_suggestion.png)
+
+Nele, a API consome os dados da Embrapa, disponíveis publicamente na internet. Um outro serviço, fora do escopo da API,
+consome seus endpoints para extrair os dados e indicadores que julga relevantes. Esse serviço armazena os dados de 
+maneira estruturada para que depois possam passar por um processo de analytics, afim de extrair novos indicadores,
+tendências, previsões e outros insights.
+
 ## Executando a API
 
 Você pode utilizar compilar o código fonte e executar a API em sua máquina, mas, para efeitos de praticidade, e também
